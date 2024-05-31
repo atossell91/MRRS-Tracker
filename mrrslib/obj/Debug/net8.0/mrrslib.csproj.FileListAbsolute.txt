@@ -1,0 +1,11 @@
+/home/ant/Programming/mrrs/mrrslib/bin/Debug/net8.0/mrrslib.deps.json
+/home/ant/Programming/mrrs/mrrslib/bin/Debug/net8.0/mrrslib.dll
+/home/ant/Programming/mrrs/mrrslib/bin/Debug/net8.0/mrrslib.pdb
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/mrrslib.GeneratedMSBuildEditorConfig.editorconfig
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/mrrslib.AssemblyInfoInputs.cache
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/mrrslib.AssemblyInfo.cs
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/mrrslib.csproj.CoreCompileInputs.cache
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/mrrslib.dll
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/refint/mrrslib.dll
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/mrrslib.pdb
+/home/ant/Programming/mrrs/mrrslib/obj/Debug/net8.0/ref/mrrslib.dll

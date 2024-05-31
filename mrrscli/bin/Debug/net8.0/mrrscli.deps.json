@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "mrrscli/1.0.0": {
+        "dependencies": {
+          "mrrslib": "1.0.0"
+        },
+        "runtime": {
+          "mrrscli.dll": {}
+        }
+      },
+      "mrrslib/1.0.0": {
+        "runtime": {
+          "mrrslib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "mrrscli/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "mrrslib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
