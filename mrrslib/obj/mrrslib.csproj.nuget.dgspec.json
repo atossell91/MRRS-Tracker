@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ant/Programming/mrrs/mrrslib/mrrslib.csproj": {}
+    "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj": {}
   },
   "projects": {
-    "/home/ant/Programming/mrrs/mrrslib/mrrslib.csproj": {
+    "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ant/Programming/mrrs/mrrslib/mrrslib.csproj",
+        "projectUniqueName": "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj",
         "projectName": "mrrslib",
-        "projectPath": "/home/ant/Programming/mrrs/mrrslib/mrrslib.csproj",
+        "projectPath": "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj",
         "packagesPath": "/home/ant/.nuget/packages/",
-        "outputPath": "/home/ant/Programming/mrrs/mrrslib/obj/",
+        "outputPath": "/home/ant/Programming/MRRS-Tracker/mrrslib/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ant/.nuget/NuGet/NuGet.Config"
@@ -42,6 +42,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.118, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
