@@ -4,7 +4,9 @@ CREATE TABLE InspectorActivity (
     ActivityID INTEGER NOT NULL,
     PeriodStart TEXT NOT NULL,
     PeriodEnd TEXT NOT NULL,
-    Hours REAL NOT NULL
+    Hours REAL NOT NULL,
+    FOREIGN KEY (InspectorID) REFERENCES Inspector(ID),
+    FOREIGN KEY (ActivityID) REFERENCES Activity(ID)
 );
 
 CREATE TABLE RecordOfInspectorActivityChanges (

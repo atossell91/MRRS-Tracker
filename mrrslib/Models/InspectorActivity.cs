@@ -1,9 +1,9 @@
-namespace mrrsns;
+using System;
 
 public class InspectorActivity {
     public int InspectorID { get; set; }
     public int ActivityID { get; set; }
     public DateTime PeriodStart { get; set; }
     public DateTime PeriodEnd { get; set; }
-    public Double Hours { get; set; }
+    public double Hours { get; set; }
 }
