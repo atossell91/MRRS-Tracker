@@ -5,7 +5,7 @@ using System;
 class mrrscli {
     public static void Main(string[] args) {
 
-        MRRS mrrs = new MRRS("/home/ant/Programming/MRRS-Tracker/testroot");
+        MRRS mrrs = new MRRS("C:\\Users\\atoss\\source\\repos\\atossell91\\MRRS-Tracker\\testroot");
         mrrs.CreateDb();
 
         MRRSTester tester = new MRRSTester();
