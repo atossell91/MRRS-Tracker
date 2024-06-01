@@ -95,11 +95,4 @@ public class MRRS {
             cmd.ExecuteNonQuery();
         }
     }
-
-    public void OpenClose() {
-        using (
-            var con = new SQLiteConnection(ConnectionString)) {
-            con.Open();
-        }
-    }
 }
