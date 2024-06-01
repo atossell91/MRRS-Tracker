@@ -7,6 +7,7 @@ public class MRRS {
     public readonly string SQLDateFormatStr = "yyyy-MM-dd HH:mm";
     public readonly string RootDir;
     public readonly string SQLDir;
+    public const int WriteTimeout = 10000;
     public MRRS(string rootPath)
     {
         RootDir = rootPath;
@@ -85,11 +86,20 @@ public class MRRS {
     private void addData(string sqlStr) {
         using (
             var con = new SQLiteConnection(ConnectionString)) {
+            con.BusyTimeout = WriteTimeout;
             con.Open();
 
             var cmd = con.CreateCommand();
             cmd.CommandText = sqlStr;
+            
             cmd.ExecuteNonQuery();
+        }
+    }
+
+    public void OpenClose() {
+        using (
+            var con = new SQLiteConnection(ConnectionString)) {
+            con.Open();
         }
     }
 }

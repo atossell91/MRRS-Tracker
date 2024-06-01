@@ -1,14 +1,24 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System;
+using System.Runtime.InteropServices;
 
-class mrrscli {
+class MRRSCli {
     public static void Main(string[] args) {
-
-        MRRS mrrs = new MRRS("C:\\Users\\atoss\\source\\repos\\atossell91\\MRRS-Tracker\\testroot");
-        mrrs.CreateDb();
+        MRRS mrrs = null;
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+            mrrs = new MRRS("C:\\Users\\atoss\\source\\repos\\atossell91\\MRRS-Tracker\\testroot");
+        }
+        else {
+            mrrs = new MRRS("/home/ant/Programming/MRRS-Tracker/testroot");
+        }
 
         MRRSTester tester = new MRRSTester();
+        tester.AddTestInspector(mrrs);
+        //mrrs.OpenClose();
+        /*
+        mrrs.CreateDb();
+
         tester.AddTestActivity(mrrs);
         tester.AddTestInspector(mrrs);
 
@@ -21,6 +31,7 @@ class mrrscli {
         };
 
         mrrs.AddTime(activity);
+        */
     }
 }
 

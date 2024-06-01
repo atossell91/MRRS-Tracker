@@ -1,5 +1,5 @@
 is_global = true
 build_property.RootNamespace = mrrscli
-build_property.ProjectDir = C:\Users\atoss\Source\Repos\atossell91\MRRS-Tracker\mrrscli\
+build_property.ProjectDir = /home/ant/Programming/MRRS-Tracker/mrrscli/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

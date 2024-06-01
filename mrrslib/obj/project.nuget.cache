@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "BDtQTSpd6LwXGw1jjHA1pta37mNUH4GBzd6A7STvfnAUwdWwBAq+/c3bLkp8yTfyvtnHKBkDGzz0u6t/BWmZWA==",
+  "dgSpecHash": "gp5EA4X3oU0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\atoss\\source\\repos\\atossell91\\MRRS-Tracker\\mrrslib\\mrrslib.csproj",
+  "projectFilePath": "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\atoss\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
-    "C:\\Users\\atoss\\.nuget\\packages\\stub.system.data.sqlite.core.netframework\\1.0.118\\stub.system.data.sqlite.core.netframework.1.0.118.nupkg.sha512",
-    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite\\1.0.118\\system.data.sqlite.1.0.118.nupkg.sha512",
-    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite.core\\1.0.118\\system.data.sqlite.core.1.0.118.nupkg.sha512",
-    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.118\\system.data.sqlite.ef6.1.0.118.nupkg.sha512",
-    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite.linq\\1.0.118\\system.data.sqlite.linq.1.0.118.nupkg.sha512"
+    "/home/ant/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
+    "/home/ant/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/home/ant/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512",
+    "/home/ant/.nuget/packages/stub.system.data.sqlite.core.netframework/1.0.118/stub.system.data.sqlite.core.netframework.1.0.118.nupkg.sha512",
+    "/home/ant/.nuget/packages/system.data.sqlite/1.0.118/system.data.sqlite.1.0.118.nupkg.sha512",
+    "/home/ant/.nuget/packages/system.data.sqlite.core/1.0.118/system.data.sqlite.core.1.0.118.nupkg.sha512",
+    "/home/ant/.nuget/packages/system.data.sqlite.ef6/1.0.118/system.data.sqlite.ef6.1.0.118.nupkg.sha512",
+    "/home/ant/.nuget/packages/system.data.sqlite.linq/1.0.118/system.data.sqlite.linq.1.0.118.nupkg.sha512"
   ],
   "logs": []
 }
