@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mrrslib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c2a9442ffc01bba86758be3709a49f2e73b4b9c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3737338ba4ef37678e4ccb7837e84a7923ca9fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("mrrslib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mrrslib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
