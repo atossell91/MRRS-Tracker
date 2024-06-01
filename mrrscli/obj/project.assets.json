@@ -1233,32 +1233,40 @@
     ]
   },
   "packageFolders": {
-    "/home/ant/.nuget/packages/": {}
+    "C:\\Users\\atoss\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ant/Programming/MRRS-Tracker/mrrscli/mrrscli.csproj",
+      "projectUniqueName": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrscli\\mrrscli.csproj",
       "projectName": "mrrscli",
-      "projectPath": "/home/ant/Programming/MRRS-Tracker/mrrscli/mrrscli.csproj",
-      "packagesPath": "/home/ant/.nuget/packages/",
-      "outputPath": "/home/ant/Programming/MRRS-Tracker/mrrscli/obj/",
+      "projectPath": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrscli\\mrrscli.csproj",
+      "packagesPath": "C:\\Users\\atoss\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrscli\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/ant/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\atoss\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj": {
-              "projectPath": "/home/ant/Programming/MRRS-Tracker/mrrslib/mrrslib.csproj"
+            "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj": {
+              "projectPath": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj"
             }
           }
         }
@@ -1267,11 +1275,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1293,7 +1296,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
