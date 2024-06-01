@@ -52,10 +52,6 @@
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.113, )"
-            },
-            "System.Data.SQLite.Core": {
-              "target": "Package",
-              "version": "[1.0.113, )"
             }
           },
           "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"

@@ -697,8 +697,7 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
       "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.3",
-      "System.Data.SQLite >= 1.0.113",
-      "System.Data.SQLite.Core >= 1.0.113"
+      "System.Data.SQLite >= 1.0.113"
     ]
   },
   "packageFolders": {
@@ -750,10 +749,6 @@
             "autoReferenced": true
           },
           "System.Data.SQLite": {
-            "target": "Package",
-            "version": "[1.0.113, )"
-          },
-          "System.Data.SQLite.Core": {
             "target": "Package",
             "version": "[1.0.113, )"
           }
