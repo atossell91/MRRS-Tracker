@@ -1,7 +1,13 @@
 using System.Data.SQLite;
 
-public class InspectorDbParser {
-    public static Inspector ParseInspector(SQLiteDataReader reader) {
+public interface IDbParser<T> {
+    T Parse(SQLiteDataReader reader);
+}
+
+public class InspectorDbParser : IDbParser<Inspector> {
+
+    public Inspector Parse(SQLiteDataReader reader)
+    {
         Inspector inspector = new Inspector() {
             ID = reader.GetInt32(0),
             FirstName = reader.GetString(1),
@@ -11,8 +17,8 @@ public class InspectorDbParser {
     }
 }
 
-public class ActivityDbParser {
-    public static Activity ParseActivity(SQLiteDataReader reader) {
+public class ActivityDbParser : IDbParser<Activity> {
+    public Activity Parse(SQLiteDataReader reader) {
         Activity activity = new Activity() {
             ID = reader.GetInt32(0),
             Name = reader.GetString(1),
@@ -21,15 +27,19 @@ public class ActivityDbParser {
     }
 }
 
-public class InspectorActivityDbParser {
-    public static InspectorActivity ParseInspectorActivity (SQLiteDataReader reader) {
+public class InspectorActivityDbParser : IDbParser<InspectorActivity> {
+
+    public InspectorActivity Parse(SQLiteDataReader reader)
+    {
         InspectorActivity inspectorActivity = new InspectorActivity() {
             ID = reader.GetInt32(0),
-            InspectorID = reader.GetInt32(1),
-            ActivityID = reader.GetInt32(2),
-            Hours = reader.GetDouble(3),
-            PeriodStart = reader.GetDateTime(4),
-            PeriodEnd = reader.GetDateTime(5),
+            InspectorName = reader.GetString(1),
+            InspectorID = reader.GetInt32(2),
+            ActivityName = reader.GetString(3),
+            ActivityID = reader.GetInt32(4),
+            Hours = reader.GetDouble(5),
+            PeriodStart = reader.GetDateTime(6),
+            PeriodEnd = reader.GetDateTime(7),
         };
 
         return inspectorActivity;

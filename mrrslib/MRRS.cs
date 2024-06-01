@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Data.SQLite;
+using System.Collections.ObjectModel;
 
 public class MRRS {
     public readonly string SQLDateFormatStr = "yyyy-MM-dd HH:mm";
@@ -81,6 +82,40 @@ public class MRRS {
             );
         
         addData(sqlCmd);
+    }
+
+    public ObservableCollection<Inspector> GetInspectors() {
+        string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-inspectors.sql"));
+        return readData<Inspector>(sqlStr, new InspectorDbParser());
+    }
+
+    public ObservableCollection<Activity> GetActivities() {
+        string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-activities.sql"));
+        return readData<Activity>(sqlStr, new ActivityDbParser());
+    }
+
+
+    public ObservableCollection<InspectorActivity> GetActivityList() {
+        string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-inspector-activities.sql"));
+        return readData<InspectorActivity>(sqlStr, new InspectorActivityDbParser());
+    }
+
+    private ObservableCollection<T> readData<T>(string sqlStr, IDbParser<T> parser) {
+        var collection = new ObservableCollection<T>();
+        using ( var con = new SQLiteConnection(ConnectionString)) {
+            con.BusyTimeout = WriteTimeout;
+            con.Open();
+
+            var cmd = con.CreateCommand();
+            cmd.CommandText = sqlStr;
+            
+            using (var reader = cmd.ExecuteReader()) {
+                while (reader.Read()) {
+                    collection.Add(parser.Parse(reader));
+                }
+            }
+        }
+        return collection;
     }
 
     private void addData(string sqlStr) {

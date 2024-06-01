@@ -14,7 +14,11 @@ class MRRSCli {
         }
 
         MRRSTester tester = new MRRSTester();
-        tester.AddTestInspector(mrrs);
+        var col = mrrs.GetInspectors();
+        foreach (var row in col) {
+            Console.WriteLine($"{row.FirstName} {row.LastName}");
+        }
+        //tester.AddTestInspector(mrrs);
         //mrrs.OpenClose();
         /*
         mrrs.CreateDb();
