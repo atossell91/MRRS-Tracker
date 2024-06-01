@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Data.SQLite;
 using System.Collections.ObjectModel;
+using System.Data.SqlTypes;
 
 public class MRRS {
+    public event EventHandler DatabaseDataChanged;
     public readonly string SQLDateFormatStr = "yyyy-MM-dd HH:mm";
     public readonly string RootDir;
     public readonly string SQLDir;
@@ -56,7 +58,7 @@ public class MRRS {
             string sqlCmd = String.Format(sql,
             inspector.FirstName, inspector.LastName);
 
-            addData(sqlCmd);
+            modifyData(sqlCmd);
     }
 
     public void AddActivity(Activity activity) {
@@ -66,7 +68,7 @@ public class MRRS {
             string sqlCmd = String.Format(sql,
             activity.Name);
 
-            addData(sqlCmd);
+            modifyData(sqlCmd);
     }
 
     public void AddTime(InspectorActivity inspectorActivity) {
@@ -81,7 +83,25 @@ public class MRRS {
             inspectorActivity.PeriodEnd.ToString(SQLDateFormatStr)
             );
         
-        addData(sqlCmd);
+        modifyData(sqlCmd);
+    }
+
+    public void DeleteInspector(int inspectorID) {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "delete-inspector.sql"));
+        modifyData(String.Format(sqlStr, inspectorID));
+    }
+
+    public void DeleteActivity(int activityID) {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "delete-inspector.sql"));
+        modifyData(String.Format(sqlStr, activityID));
+    }
+
+    public void DeleteInspectorActivity(int inspectorActivityID) {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "delete-inspector-activity.sql"));
+        modifyData(String.Format(sqlStr, inspectorActivityID));
     }
 
     public ObservableCollection<Inspector> GetInspectors() {
@@ -98,6 +118,51 @@ public class MRRS {
     public ObservableCollection<InspectorActivity> GetActivityList() {
         string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-inspector-activities.sql"));
         return readData<InspectorActivity>(sqlStr, new InspectorActivityDbParser());
+    }
+
+    public DateTime GetLastDbUpdateTime() {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "check-update-logs.sql"));
+        string dateStr = readSingleValue(sqlStr);
+        DateTime dateTime = DateTime.Parse(dateStr);
+        return dateTime;
+    }
+
+    public DateTime GetLastInspectorUpdateTime() {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "check-inspector-update-logs.sql"));
+        string dateStr = readSingleValue(sqlStr);
+        DateTime dateTime = DateTime.Parse(dateStr);
+        return dateTime;
+    }
+
+    public DateTime GetLastActivityUpdateTime() {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "check-activity-update-logs.sql"));
+        string dateStr = readSingleValue(sqlStr);
+        DateTime dateTime = DateTime.Parse(dateStr);
+        return dateTime;
+    }
+
+    public DateTime GetLastInspectorActivityUpdateTime() {
+        string sqlStr = Utilities.LoadTextFile(
+            Path.Combine(SQLDir, "check-inspector-activity-update-logs.sql"));
+        string dateStr = readSingleValue(sqlStr);
+        DateTime dateTime = DateTime.Parse(dateStr);
+        return dateTime;
+    }
+
+    private string readSingleValue(string SqlString) {
+        string output = string.Empty;
+        using (var con = new SQLiteConnection(ConnectionString)) {
+            con.Open();
+
+            var cmd = con.CreateCommand();
+            cmd.CommandText = SqlString;
+            output = cmd.ExecuteScalar().ToString();
+        }
+
+        return output;
     }
 
     private ObservableCollection<T> readData<T>(string sqlStr, IDbParser<T> parser) {
@@ -118,7 +183,8 @@ public class MRRS {
         return collection;
     }
 
-    private void addData(string sqlStr) {
+    private void modifyData(string sqlStr) {
+        int rowsChanged = 0;
         using (
             var con = new SQLiteConnection(ConnectionString)) {
             con.BusyTimeout = WriteTimeout;
@@ -127,7 +193,11 @@ public class MRRS {
             var cmd = con.CreateCommand();
             cmd.CommandText = sqlStr;
             
-            cmd.ExecuteNonQuery();
+            rowsChanged = cmd.ExecuteNonQuery();
+        }
+
+        if (rowsChanged > 0) {
+            DatabaseDataChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

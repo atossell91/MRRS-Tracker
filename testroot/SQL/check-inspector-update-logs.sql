@@ -1,0 +1,1 @@
+SELECT RecordOfInspectorChanges.Logtime FROM RecordOfInspectorChanges;
