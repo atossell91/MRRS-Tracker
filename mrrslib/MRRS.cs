@@ -4,10 +4,12 @@ using System.IO;
 using System.Data.SQLite;
 using System.Collections.ObjectModel;
 using System.Data.SqlTypes;
+using System.Text;
 
 public class MRRS {
     public event EventHandler DatabaseDataChanged;
-    public readonly string SQLDateFormatStr = "yyyy-MM-dd HH:mm";
+    public readonly string SQLDateTimeFormatStr = "yyyy-MM-dd HH:mm";
+    public readonly string SQLDateFormatStr = "yyyy-MM-dd";
     public readonly string RootDir;
     public readonly string SQLDir;
     public const int WriteTimeout = 10000;
@@ -79,8 +81,8 @@ public class MRRS {
             inspectorActivity.InspectorID,
             inspectorActivity.ActivityID,
             inspectorActivity.Hours,
-            inspectorActivity.PeriodStart.ToString(SQLDateFormatStr),
-            inspectorActivity.PeriodEnd.ToString(SQLDateFormatStr)
+            inspectorActivity.PeriodStart.ToString(SQLDateTimeFormatStr),
+            inspectorActivity.PeriodEnd.ToString(SQLDateTimeFormatStr)
             );
         
         modifyData(sqlCmd);
@@ -118,6 +120,50 @@ public class MRRS {
     public ObservableCollection<InspectorActivity> GetActivityList() {
         string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-inspector-activities.sql"));
         return readData<InspectorActivity>(sqlStr, new InspectorActivityDbParser());
+    }
+
+    public ObservableCollection<InspectorActivity> GetFilteredActivityList(InspectorActivity inspectorActivity) {
+        string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-activities-filtered.sql"));
+
+        List<string> conditions = new List<string>();
+        if (inspectorActivity.InspectorID >= 0) {
+            conditions.Add(String.Format("Inspector.ID = {0}", inspectorActivity.InspectorID));
+        }
+
+        if (inspectorActivity.ActivityID >= 0) {
+            conditions.Add(String.Format("Activity.ID = {0}", inspectorActivity.ActivityID));
+        }
+
+        if (inspectorActivity.PeriodStart != null && inspectorActivity.PeriodEnd == null) {
+            conditions.Add(String.Format("InspectorActivity.PeriodStart = {0}",
+                inspectorActivity.PeriodStart.ToString(SQLDateFormatStr)));
+        }
+
+        if (inspectorActivity.PeriodStart != null && inspectorActivity.PeriodEnd != null) {
+            conditions.Add(String.Format(
+                "InspectorActivity.PeriodStart <= {0} AND InspectorActivity.PeriodEnd >= {1}",
+                inspectorActivity.PeriodEnd.ToString(SQLDateFormatStr),
+                inspectorActivity.PeriodStart.ToString(SQLDateFormatStr)));
+        }
+
+        StringBuilder builder = new StringBuilder();
+
+        if (conditions.Count > 0) {
+            builder.Append(" WHERE ");
+        }
+
+        for (int i = 0; i < conditions.Count; ++i) {
+            builder.Append(String.Format("{0} ", conditions[i]));
+            if (i < conditions.Count - 1) {
+                builder.Append("AND ");
+            }
+        }
+
+        string whereConditions = builder.ToString();
+        string completeSql = String.Format(sqlStr, whereConditions);
+        Console.WriteLine(completeSql);
+
+        return readData<InspectorActivity>(completeSql, new InspectorActivityDbParser());
     }
 
     public DateTime GetLastDbUpdateTime() {

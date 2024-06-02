@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mrrscli")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+768c87dbe9ee543b73cb20ad24d869a43a0c6c60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e358fb000013920ac12a67d957f1926c03eea695")]
 [assembly: System.Reflection.AssemblyProductAttribute("mrrscli")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mrrscli")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

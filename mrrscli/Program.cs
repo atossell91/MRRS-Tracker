@@ -49,6 +49,18 @@ class MRRSCli {
                     var act = BuildActivity();
                     mrrs.AddActivity(act);
                     break;
+                case "delete inspector":
+                    int id = promptForInteger("Enter an Inspector ID: ");
+                    mrrs.DeleteInspector(id);
+                    break;
+                case "delete inspector activity":
+                    int recordId = promptForInteger("Enter a record ID: ");
+                    mrrs.DeleteInspectorActivity(recordId);
+                    break;
+                case "delete activity":
+                    int activityId = promptForInteger("Enter an Activity ID: ");
+                    mrrs.DeleteActivity(activityId);
+                    break;
                 case "create database":
                     mrrs.CreateDb();
                     break;
@@ -120,6 +132,15 @@ class MRRSCli {
         };
 
         return activity;
+    }
+
+    private static int promptForInteger(string message) {
+        Console.Write(message);
+        int number = -1;
+        while (!int.TryParse(Console.ReadLine(), out number)) {
+            Console.Write("Please enter a number: ");
+        }
+        return number;
     }
 
     public static void DisplayInspectors(IEnumerable<Inspector> inspectors) {
