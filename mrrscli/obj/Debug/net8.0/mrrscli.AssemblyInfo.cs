@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mrrscli")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3692b1a850296faeb9b743893eb4497bfffe34a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("mrrscli")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mrrscli")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
