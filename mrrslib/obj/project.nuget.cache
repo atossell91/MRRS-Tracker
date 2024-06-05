@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "dZ+Lnzz6vtL5uMWDB5i1GDNdIZVDffwXjddkwdvH3P479ACMHG0vvnFQhh0xllbzTo6QXhzfNcd/l0q5b2RtMw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\atoss\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
+    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite\\1.0.113\\system.data.sqlite.1.0.113.nupkg.sha512",
+    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite.core\\1.0.113\\system.data.sqlite.core.1.0.113.nupkg.sha512",
+    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite.ef6\\1.0.113\\system.data.sqlite.ef6.1.0.113.nupkg.sha512",
+    "C:\\Users\\atoss\\.nuget\\packages\\system.data.sqlite.linq\\1.0.113\\system.data.sqlite.linq.1.0.113.nupkg.sha512"
+  ],
+  "logs": []
+}

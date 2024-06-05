@@ -1,0 +1,5 @@
+SELECT RecordOfActivityChanges.Logtime FROM RecordOfActivityChanges
+UNION
+SELECT RecordOfInspectorChanges.Logtime FROM RecordOfInspectorChanges
+UNION
+SELECT RecordOfInspectorActivityChanges.Logtime FROM RecordOfInspectorActivityChanges;

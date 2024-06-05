@@ -1,0 +1,6 @@
+mrrscli/bin/
+mrrslib/bin/
+mrrscli/obj/
+mrrslib/bin/
+.vs/
+testroot/
