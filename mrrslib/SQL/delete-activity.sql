@@ -1,1 +1,0 @@
-DELETE FROM Activity WHERE Activity.ID = {0};

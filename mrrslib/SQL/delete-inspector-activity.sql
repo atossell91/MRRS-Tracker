@@ -1,1 +1,0 @@
-DELETE FROM InspectorActivity WHERE InspectorActivity.ID = {0};

@@ -1,1 +1,0 @@
-SELECT RecordOfActivityChanges.Logtime FROM RecordOfActivityChanges;
