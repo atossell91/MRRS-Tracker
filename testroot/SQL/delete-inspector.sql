@@ -1,1 +1,0 @@
-DELETE FROM Inspector WHERE Inspector.ID = {0};
