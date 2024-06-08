@@ -24,5 +24,15 @@ namespace mrrswpf
         {
             InitializeComponent();
         }
+
+        private void Button_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

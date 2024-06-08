@@ -1,4 +1,5 @@
 ﻿using mrrslib;
+using mrrswpf.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace mrrswpf.ViewModels
 {
@@ -23,17 +25,23 @@ namespace mrrswpf.ViewModels
                     new PropertyChangedEventArgs(nameof(InspectorActivities)));
             }
         }
+
+        public ICommand CmdOpenAddInspectorActivity { get; set; }
+
         private Timer _timer;
         private MRRS mrrs;
         private DateTime _lastUpdated;
+        private AddInspectorActivity _addInspectorActivity;
 
         public InspectorActivityViewModel()
         {
-            string dbPath = @"C:\Users\\atoss\Documents\MRRS.db";
+            string dbPath = Properties.Settings.Default.DbPath;
             mrrs = new MRRS(dbPath);
             InspectorActivities = mrrs.GetActivityList();
             _lastUpdated = DateTime.Now;
             _timer = new Timer(new TimerCallback(_ => TryupdateList()), null, 0, 5000);
+            _addInspectorActivity = new AddInspectorActivity();
+            CmdOpenAddInspectorActivity = new OpenAddInspectorActivityWindow(_addInspectorActivity);
         }
 
         private void refreshList()

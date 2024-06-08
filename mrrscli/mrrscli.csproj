@@ -4,15 +4,28 @@
     <ProjectReference Include="..\mrrslib\mrrslib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net4.7.2</TargetFramework>
   </PropertyGroup>
 
   <Target Name="CopyConfigs" AfterTargets="Build">
-    <Copy SourceFiles="configs.txt" 
-    DestinationFolder="$(OutDir)/" 
-    Condition="!Exists('$(OutDir)/configs.txt')"/>
+    <Copy SourceFiles="configs.txt" DestinationFolder="$(OutDir)/" Condition="!Exists('$(OutDir)/configs.txt')" />
   </Target>
 
 </Project>

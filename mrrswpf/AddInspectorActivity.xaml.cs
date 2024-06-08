@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,21 @@ namespace mrrswpf.ViewModels
     /// </summary>
     public partial class AddInspectorActivity : Window
     {
+        public bool CanClose { get; set; } = false;
         public AddInspectorActivity()
         {
             InitializeComponent();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            if (!CanClose)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
         }
     }
 }
