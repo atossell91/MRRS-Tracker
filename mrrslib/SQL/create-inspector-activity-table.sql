@@ -3,6 +3,7 @@ CREATE TABLE InspectorActivity (
     InspectorID INTEGER NOT NULL,
     ActivityID INTEGER NOT NULL,
     PeriodStart TEXT NOT NULL,
+    PeriodStartTime TEXT NOT NULL,
     PeriodEnd TEXT,
     Hours REAL NOT NULL,
     Comment TEXT,

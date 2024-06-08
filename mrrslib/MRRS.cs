@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Data.SQLite;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlTypes;
 using System.Text;
 using System.Reflection;
+using Dapper;
+using System.Data.SqlClient;
 
 namespace mrrslib
 {
@@ -13,6 +16,7 @@ namespace mrrslib
         public event EventHandler DatabaseDataChanged;
         public readonly string SQLDateTimeFormatStr = "yyyy-MM-dd HH:mm";
         public readonly string SQLDateFormatStr = "yyyy-MM-dd";
+        public readonly string SQLTimeFormatStr = "HH:mm";
         public readonly string SQLDir;
         public const int WriteTimeout = 10000;
         public MRRS(string dbPath)
@@ -61,10 +65,10 @@ namespace mrrslib
             string sql = Utilities.LoadTextFile(
                 Path.Combine(SQLDir, "add-inspector.sql"));
 
-                string sqlCmd = String.Format(sql,
-                inspector.FirstName, inspector.LastName);
-
-                modifyData(sqlCmd);
+                modifyData(sql, new {
+                    FirstName = inspector.FirstName,
+                    LastName = inspector.LastName
+                });
         }
 
         public void AddActivity(Activity activity) {
@@ -74,103 +78,82 @@ namespace mrrslib
                 string sqlCmd = String.Format(sql,
                 activity.Name);
 
-                modifyData(sqlCmd);
+                modifyData(sqlCmd, new {ActivityName=activity.Name});
         }
 
         public void AddTime(InspectorActivity inspectorActivity) {
             string sql = Utilities.LoadTextFile(
                 Path.Combine(SQLDir, "insert-time.sql"));
-
-            string sqlCmd =  String.Format(sql,
-                inspectorActivity.InspectorID,
-                inspectorActivity.ActivityID,
-                inspectorActivity.Hours,
-                inspectorActivity.PeriodStart.ToString(SQLDateTimeFormatStr),
-                //inspectorActivity.PeriodEnd.ToString(SQLDateTimeFormatStr)
-                inspectorActivity.Comment
-                );
         
-            modifyData(sqlCmd);
+            modifyData(sql, new {
+                InspectorID = inspectorActivity.InspectorID,
+                ActivityID = inspectorActivity.ActivityID,
+                Hours = inspectorActivity.Hours,
+                PeriodStart = inspectorActivity.PeriodStart.ToString(SQLDateFormatStr),
+                PeriodStartTime = inspectorActivity.PeriodStart.ToString(SQLTimeFormatStr),
+                //inspectorActivity.PeriodEnd.ToString(SQLDateTimeFormatStr)
+                Comment = inspectorActivity.Comment
+            });
         }
 
         public void DeleteInspector(int inspectorID) {
             string sqlStr = Utilities.LoadTextFile(
                 Path.Combine(SQLDir, "delete-inspector.sql"));
-            modifyData(String.Format(sqlStr, inspectorID));
+            modifyData(sqlStr, new { ID = inspectorID });
         }
 
         public void DeleteActivity(int activityID) {
             string sqlStr = Utilities.LoadTextFile(
-                Path.Combine(SQLDir, "delete-inspector.sql"));
-            modifyData(String.Format(sqlStr, activityID));
+                Path.Combine(SQLDir, "delete-activity.sql"));
+            modifyData(sqlStr, new { ID = activityID});
         }
 
         public void DeleteInspectorActivity(int inspectorActivityID) {
             string sqlStr = Utilities.LoadTextFile(
                 Path.Combine(SQLDir, "delete-inspector-activity.sql"));
-            modifyData(String.Format(sqlStr, inspectorActivityID));
+            modifyData(sqlStr, new {ID=inspectorActivityID});
         }
 
         public ObservableCollection<Inspector> GetInspectors() {
             string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-inspectors.sql"));
-            return readData<Inspector>(sqlStr, new InspectorDbParser());
+            return readData<Inspector>(sqlStr);
         }
 
         public ObservableCollection<Activity> GetActivities() {
             string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-activities.sql"));
-            return readData<Activity>(sqlStr, new ActivityDbParser());
+            return readData<Activity>(sqlStr);
         }
 
 
         public ObservableCollection<InspectorActivity> GetActivityList() {
             string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-all-inspector-activities.sql"));
-            return readData<InspectorActivity>(sqlStr, new InspectorActivityDbParser());
+            return readData<InspectorActivity>(sqlStr);
         }
 
-        public ObservableCollection<InspectorActivity> GetFilteredActivityList(InspectorActivity inspectorActivity) {
-            string sqlStr = Utilities.LoadTextFile(Path.Combine(SQLDir, "get-activities-filtered.sql"));
+        public ObservableCollection<InspectorActivity> GetFilteredActivityList(InspectorActivityFilter filter) {
+            string templateStr = Utilities.LoadTextFile(
+                Path.Combine(SQLDir, "get-activities-filtered.sql"));
+            
+            var builder = new SqlBuilder();
 
-            List<string> conditions = new List<string>();
-            if (inspectorActivity.InspectorID >= 0) {
-                conditions.Add(String.Format("Inspector.ID = {0}", inspectorActivity.InspectorID));
+            if (filter.ActivityID >= 0) {
+                builder.Where("ActivityID=@ActivityID", new {ActivityID=filter.ActivityID});
             }
 
-            if (inspectorActivity.ActivityID >= 0) {
-                conditions.Add(String.Format("Activity.ID = {0}", inspectorActivity.ActivityID));
+            if (filter.InspectorID >= 0) {
+                builder.Where("InspectorID=@InspectorID", new {InspectorID=filter.InspectorID});
             }
 
-            //if (inspectorActivity.PeriodStart != null && inspectorActivity.PeriodEnd == null) {
-                conditions.Add(String.Format("InspectorActivity.PeriodStart = {0}",
-                    inspectorActivity.PeriodStart.ToString(SQLDateFormatStr)));
-           // }
-
-            /*
-            if (inspectorActivity.PeriodStart != null && inspectorActivity.PeriodEnd != null) {
-                conditions.Add(String.Format(
-                    "InspectorActivity.PeriodStart <= {0} AND InspectorActivity.PeriodEnd >= {1}",
-                    inspectorActivity.PeriodEnd.ToString(SQLDateFormatStr),
-                    inspectorActivity.PeriodStart.ToString(SQLDateFormatStr)));
-            }
-            */
-
-            StringBuilder builder = new StringBuilder();
-
-            if (conditions.Count > 0) {
-                builder.Append(" WHERE ");
+            if (filter.Dates != null) {
+                builder.Where("PeriodStart >= @StartDate",
+                new {StartDate=filter.Dates.Start.ToString(SQLDateFormatStr)});
+                builder.Where("PeriodStart <= @EndDate",
+                new {EndDate=filter.Dates.End.ToString(SQLDateFormatStr)});
             }
 
-            for (int i = 0; i < conditions.Count; ++i) {
-                builder.Append(String.Format("{0} ", conditions[i]));
-                if (i < conditions.Count - 1) {
-                    builder.Append("AND ");
-                }
-            }
-
-            string whereConditions = builder.ToString();
-            string completeSql = String.Format(sqlStr, whereConditions);
-            Console.WriteLine(completeSql);
-
-            return readData<InspectorActivity>(completeSql, new InspectorActivityDbParser());
+            var qry = builder.AddTemplate(templateStr);
+            
+            return readData<InspectorActivity>(qry.RawSql, qry.Parameters);
         }
 
         public DateTime GetLastDbUpdateTime() {
@@ -208,49 +191,25 @@ namespace mrrslib
         private string readSingleValue(string SqlString) {
             string output = string.Empty;
             using (var con = new SQLiteConnection(ConnectionString)) {
-                con.Open();
-
-                var cmd = con.CreateCommand();
-                cmd.CommandText = SqlString;
-                output = cmd.ExecuteScalar().ToString();
+                output = con.ExecuteScalar<string>(SqlString);
             }
 
             return output;
         }
 
-        private ObservableCollection<T> readData<T>(string sqlStr, IDbParser<T> parser) {
+        private ObservableCollection<T> readData<T>(string sqlStr, object parameters = null) {
             var collection = new ObservableCollection<T>();
             using ( var con = new SQLiteConnection(ConnectionString)) {
-                con.BusyTimeout = WriteTimeout;
-                con.Open();
-
-                var cmd = con.CreateCommand();
-                cmd.CommandText = sqlStr;
-            
-                using (var reader = cmd.ExecuteReader()) {
-                    while (reader.Read()) {
-                        collection.Add(parser.Parse(reader));
-                    }
-                }
+                collection = new ObservableCollection<T>(con.Query<T>(sqlStr, parameters));
             }
             return collection;
         }
 
-        private void modifyData(string sqlStr) {
+        private void modifyData(string sqlStr, object parameters) {
             int rowsChanged = 0;
             using (
                 var con = new SQLiteConnection(ConnectionString)) {
-                con.BusyTimeout = WriteTimeout;
-                con.Open();
-
-                var cmd = con.CreateCommand();
-                cmd.CommandText = sqlStr;
-            
-                rowsChanged = cmd.ExecuteNonQuery();
-            }
-
-            if (rowsChanged > 0) {
-                DatabaseDataChanged?.Invoke(this, EventArgs.Empty);
+                    rowsChanged = con.Execute(sqlStr, parameters);
             }
         }
     }

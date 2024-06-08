@@ -1,1 +1,1 @@
-DELETE FROM InspectorActivity WHERE InspectorActivity.ID = {0};
+DELETE FROM InspectorActivity WHERE InspectorActivity.ID = @ID;

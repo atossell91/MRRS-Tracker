@@ -14,7 +14,9 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="System.Data.SQLite" Version="1.0.113" />
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Dapper.SqlBuilder" Version="2.0.78" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
   </ItemGroup>
 
   <ItemGroup>

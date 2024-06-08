@@ -1,4 +1,4 @@
 INSERT INTO InspectorActivity (
-    InspectorID, ActivityID, Hours, PeriodStart, Comment
+    InspectorID, ActivityID, Hours, PeriodStart, PeriodStartTime, Comment
     )
-VALUES ({0}, {1}, {2}, '{3}', '{4}');
+VALUES (@InspectorID, @ActivityID, @Hours, @PeriodStart, @PeriodStartTime, @Comment);

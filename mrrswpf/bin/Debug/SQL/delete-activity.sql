@@ -1,1 +1,1 @@
-DELETE FROM Activity WHERE Activity.ID = {0};
+DELETE FROM Activity WHERE Activity.ID = @ID;

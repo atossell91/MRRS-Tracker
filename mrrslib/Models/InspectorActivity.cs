@@ -5,7 +5,7 @@ namespace mrrslib
     public class InspectorActivity
     {
         public int ID { get; set; }
-        public string InspectorName { get; set; }
+        public string InspectorFirstName { get; set; }
         public int InspectorID { get; set; }
         public string ActivityName { get; set; }
         public int ActivityID { get; set; }

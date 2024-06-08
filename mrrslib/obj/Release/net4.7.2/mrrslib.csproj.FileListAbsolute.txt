@@ -31,3 +31,5 @@ C:\Users\atoss\Programming\MRRS-Tracker\mrrslib\obj\release\net4.7.2\mrrslib.sou
 C:\Users\atoss\Programming\MRRS-Tracker\mrrslib\obj\release\net4.7.2\mrrslib.csproj.CopyComplete
 C:\Users\atoss\Programming\MRRS-Tracker\mrrslib\obj\release\net4.7.2\mrrslib.dll
 C:\Users\atoss\Programming\MRRS-Tracker\mrrslib\obj\release\net4.7.2\mrrslib.pdb
+C:\Users\atoss\Programming\MRRS-Tracker\mrrslib\bin\release\net4.7.2\Dapper.dll
+C:\Users\atoss\Programming\MRRS-Tracker\mrrslib\bin\release\net4.7.2\Dapper.SqlBuilder.dll

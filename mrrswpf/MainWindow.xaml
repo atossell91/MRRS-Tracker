@@ -30,23 +30,6 @@
             <Button Content="Add Inspector"/>
             <Button Content="Add Activity"/>
         </StackPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding Path=InspectorActivities}">
-            <ListView.Resources>
-                <DataTemplate DataType="{x:Type mrrs:InspectorActivity}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding ID}"/>
-                        <TextBlock Text="{Binding InspectorName}"/>
-                        <TextBlock Text="{Binding ActivityName}"/>
-                        <TextBlock Text="{Binding Hours}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.Resources>
-        </ListView>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding InspectorActivities}"></DataGrid>
     </Grid>
 </Window>

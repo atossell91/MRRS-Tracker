@@ -35,6 +35,11 @@ public class MRRSConsole {
                     var inspectorActivities = mrrs.GetActivityList();
                     DisplayInspectorActivity(inspectorActivities);
                     break;
+                case "filter inspector activities":
+                    var inspectorActivityFilter = buildInspectorActivityFilter();
+                    var fInspectorActivities = mrrs.GetFilteredActivityList(inspectorActivityFilter);
+                    DisplayInspectorActivity(fInspectorActivities);
+                    break;
                 case "add inspector activity":
                     var ia = BuildInspectorActivity();
                     mrrs.AddTime(ia);
@@ -66,6 +71,59 @@ public class MRRSConsole {
                     break;
             }
         }
+    }
+
+    public static InspectorActivityFilter buildInspectorActivityFilter() {
+        Console.Write("Enter an inspector ID or -1 to skip: ");
+        int inspectorId = -1;
+        while (!int.TryParse(Console.ReadLine(), out inspectorId)) {
+            Console.Write("Invalid input. Please enter a number: ");
+        }
+
+        Console.Write("Enter an activity ID or -1 to skip: ");
+        int activityId = -1;
+        while (!int.TryParse(Console.ReadLine(), out activityId)) {
+            Console.Write("Invalid input. Please enter a number: ");
+        }
+
+        DateTime startDate = DateTime.MinValue;
+        do {
+            
+            Console.Write("Enter a range start date in the format 'YYYY-MM-DD', or 's' to skip: ");
+            string input = Console.ReadLine();
+            if (input == "s") {
+                break;
+            }
+            else if (DateTime.TryParse(input, out startDate)) {
+                break;
+            }
+
+        } while (startDate == DateTime.MinValue);
+        
+
+        InspectorActivityFilter filter = new InspectorActivityFilter() {
+            InspectorID = inspectorId,
+            ActivityID = activityId
+        };
+
+        DateTime endDate = DateTime.MinValue;
+        if (startDate != DateTime.MinValue) {
+            do {
+                Console.Write("Enter a range end date in the format 'YYYY-MM-DD': ");
+                string input = Console.ReadLine();
+                if (DateTime.TryParse(input, out endDate)) {
+                    break;
+                }
+
+            } while (endDate == DateTime.MinValue);
+
+            filter.Dates = new DateRange {
+                Start = startDate,
+                End = endDate
+            };
+        }
+
+        return filter;
     }
 
     public static InspectorActivity BuildInspectorActivity() {
@@ -243,7 +301,7 @@ public class MRRSConsole {
         foreach (var inspectorActivity in inspectorActivities) {
             inspectorActivityDisplay.PrintRow(
                 inspectorActivity.ID.ToString(),
-                inspectorActivity.InspectorName,
+                inspectorActivity.InspectorFirstName,
                 inspectorActivity.ActivityName,
                 inspectorActivity.Hours.ToString(),
                 inspectorActivity.PeriodStart.ToString("yyyy-MM-dd"),

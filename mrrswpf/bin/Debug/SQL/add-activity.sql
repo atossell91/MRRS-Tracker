@@ -1,2 +1,2 @@
 INSERT INTO Activity (Name)
-VALUES ('{0}');
+VALUES (@ActivityName);

@@ -1,5 +1,6 @@
-SELECT InspectorActivity.ID, Inspector.FirstName, Inspector.ID, Activity.Name, Activity.ID, Hours, PeriodStart, PeriodEnd
+SELECT InspectorActivity.ID, Inspector.FirstName AS InspectorFirstName, Inspector.ID AS InspectorID, Activity.Name AS ActivityName, Activity.ID AS ActivityID, Hours, PeriodStart
 FROM InspectorActivity
 INNER JOIN Inspector ON Inspector.ID = InspectorID
 INNER JOIN Activity ON Activity.ID = ActivityID
-WHERE {0};
+/**where**/
+/**orderby**/;
