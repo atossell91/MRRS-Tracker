@@ -1,5 +1,6 @@
 ﻿using mrrslib;
 using mrrswpf.Commands;
+using mrrswpf.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using mrrswpf.Models;
 
 namespace mrrswpf.ViewModels
 {
@@ -35,7 +37,7 @@ namespace mrrswpf.ViewModels
 
         public InspectorActivityViewModel()
         {
-            string dbPath = Properties.Settings.Default.DbPath;
+            string dbPath = @"C:\Users\atoss\Documents\MRRS.db";
             mrrs = new MRRS(dbPath);
             InspectorActivities = mrrs.GetActivityList();
             _lastUpdated = DateTime.Now;

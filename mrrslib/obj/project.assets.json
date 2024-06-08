@@ -342,23 +342,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ant\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\atoss\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ant\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj",
+      "projectUniqueName": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj",
       "projectName": "mrrslib",
-      "projectPath": "C:\\Users\\Ant\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj",
-      "packagesPath": "C:\\Users\\Ant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ant\\Programming\\MRRS-Tracker\\mrrslib\\obj\\",
+      "projectPath": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrslib\\mrrslib.csproj",
+      "packagesPath": "C:\\Users\\atoss\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\atoss\\Programming\\MRRS-Tracker\\mrrslib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\atoss\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -379,11 +380,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -403,7 +399,7 @@
             "version": "[1.0.118, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -2,9 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:mrrswpf"
+             xmlns:models="clr-namespace:mrrswpf.Models"
              xmlns:mrrs="mrrslib"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <models:Configs x:Key="Zoe"/>
     </Application.Resources>
 </Application>

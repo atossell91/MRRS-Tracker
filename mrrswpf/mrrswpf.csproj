@@ -78,9 +78,10 @@
       <DependentUpon>AddInspectorActivity.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\CmdOpenAddUserActivity.cs" />
+    <Compile Include="Commands\CmdOpenDialog.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\OpenAddInspectorActivityWindow.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="Models\Configs.cs" />
     <Compile Include="ViewModels\InspectorActivityViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +132,11 @@
       <Project>{cbc73640-db46-40ce-8869-2fbfcac00d18}</Project>
       <Name>mrrslib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\configs.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

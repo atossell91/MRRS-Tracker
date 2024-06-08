@@ -13,5 +13,10 @@ namespace mrrswpf
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            var conf = (Models.Configs)this.Resources["Zoe"];
+            conf.DbPath = "I love Zoe Flood!";
+        }
     }
 }
