@@ -15,8 +15,6 @@ namespace mrrswpf
     {
         public App()
         {
-            var conf = (Models.Configs)this.Resources["Zoe"];
-            conf.DbPath = "I love Zoe Flood!";
         }
     }
 }

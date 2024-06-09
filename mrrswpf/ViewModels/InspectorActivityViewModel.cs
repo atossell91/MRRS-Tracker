@@ -34,10 +34,12 @@ namespace mrrswpf.ViewModels
         private MRRS mrrs;
         private DateTime _lastUpdated;
         private AddInspectorActivity _addInspectorActivity;
+        private Configs _configs;
 
         public InspectorActivityViewModel()
         {
-            string dbPath = @"C:\Users\atoss\Documents\MRRS.db";
+            _configs = Configs.LoadConfigs("Resources/configs.txt");
+            string dbPath = _configs.DatabasePath;
             mrrs = new MRRS(dbPath);
             InspectorActivities = mrrs.GetActivityList();
             _lastUpdated = DateTime.Now;

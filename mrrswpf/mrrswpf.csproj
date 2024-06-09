@@ -81,6 +81,7 @@
     <Compile Include="Commands\CmdOpenDialog.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\OpenAddInspectorActivityWindow.cs" />
+    <Compile Include="configs.cs" />
     <Compile Include="Models\Configs.cs" />
     <Compile Include="ViewModels\InspectorActivityViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -134,9 +135,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\configs.txt">
+    <Content Include="Resources\configs.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

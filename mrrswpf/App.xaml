@@ -6,6 +6,5 @@
              xmlns:mrrs="mrrslib"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <models:Configs x:Key="Zoe"/>
     </Application.Resources>
 </Application>

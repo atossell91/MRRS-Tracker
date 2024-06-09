@@ -95,3 +95,5 @@ C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.csproj.Up2Date
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.exe
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.pdb
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\App.baml
+C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\bin\Debug\Resources\configs.txt
+C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf_Content.g.cs
