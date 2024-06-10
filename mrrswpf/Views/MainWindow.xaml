@@ -8,9 +8,6 @@
         xmlns:mrrs="clr-namespace:mrrslib;assembly=mrrslib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <viewmodelsns:InspectorActivityViewModel x:Key="ViewModel"/>
-    </Window.Resources>
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModel}"/>
     </Window.DataContext>
@@ -28,7 +25,7 @@
             </StackPanel.Resources>
             <Button Content="Add Time" Command="{Binding CmdOpenAddInspectorActivity}"/>
             <Button Content="Add Inspector"/>
-            <Button Content="Add Activity"/>
+            <Button Content="Add Activity" Click="Button_Click_1"/>
         </StackPanel>
         <DataGrid Grid.Row="1" ItemsSource="{Binding InspectorActivities}"></DataGrid>
     </Grid>

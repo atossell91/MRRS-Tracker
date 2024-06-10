@@ -12,6 +12,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using mrrswpf.Models;
+using System.Collections.Specialized;
+using mrrswpf.Views;
 
 namespace mrrswpf.ViewModels
 {
@@ -28,13 +30,43 @@ namespace mrrswpf.ViewModels
             }
         }
 
+        private ObservableCollection<Inspector> _inspectors;
+        public ObservableCollection<Inspector> Inspectors
+        {
+            get { return _inspectors; }
+            set
+            {
+                _inspectors = value;
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs(nameof(Inspectors)));
+            }
+        }
+
+        private ObservableCollection<Activity> _activities;
+        public ObservableCollection<Activity> Activities
+        {
+            get { return _activities; }
+            set
+            {
+                _activities = value;
+                PropertyChanged?.Invoke(this,
+                    new PropertyChangedEventArgs(nameof(Activities)));
+            }
+        }
+
         public ICommand CmdOpenAddInspectorActivity { get; set; }
 
         private Timer _timer;
         private MRRS mrrs;
         private DateTime _lastUpdated;
-        private AddInspectorActivity _addInspectorActivity;
         private Configs _configs;
+
+        private AddInspectorActivityDialog _addInspectorActivity;
+
+        public void foo (object sender, NotifyCollectionChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Foo"));
+        }
 
         public InspectorActivityViewModel()
         {
@@ -44,13 +76,13 @@ namespace mrrswpf.ViewModels
             InspectorActivities = mrrs.GetActivityList();
             _lastUpdated = DateTime.Now;
             _timer = new Timer(new TimerCallback(_ => TryupdateList()), null, 0, 5000);
-            _addInspectorActivity = new AddInspectorActivity();
-            CmdOpenAddInspectorActivity = new OpenAddInspectorActivityWindow(_addInspectorActivity);
         }
 
         private void refreshList()
         {
             InspectorActivities = mrrs.GetActivityList();
+            Activities = mrrs.GetActivities();
+            Inspectors = mrrs.GetInspectors();
             _lastUpdated = DateTime.Now;
         }
 

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mrrscli", "mrrscli\mrrscli.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mrrslib", "mrrslib\mrrslib.csproj", "{CBC73640-DB46-40CE-8869-2FBFCAC00D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mrrswpf", "mrrswpf\mrrswpf.csproj", "{D13BDC6F-9989-472E-88FB-AB996F57B4F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mrrspwf", "mrrspwf\mrrspwf.csproj", "{3E7D17BF-BC43-4D8F-B96D-1421DB00C378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{CBC73640-DB46-40CE-8869-2FBFCAC00D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBC73640-DB46-40CE-8869-2FBFCAC00D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBC73640-DB46-40CE-8869-2FBFCAC00D18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D13BDC6F-9989-472E-88FB-AB996F57B4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D13BDC6F-9989-472E-88FB-AB996F57B4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D13BDC6F-9989-472E-88FB-AB996F57B4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D13BDC6F-9989-472E-88FB-AB996F57B4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7D17BF-BC43-4D8F-B96D-1421DB00C378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7D17BF-BC43-4D8F-B96D-1421DB00C378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7D17BF-BC43-4D8F-B96D-1421DB00C378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7D17BF-BC43-4D8F-B96D-1421DB00C378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

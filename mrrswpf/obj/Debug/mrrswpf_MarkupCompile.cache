@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\
 mrrswpf
 none
 false
 DEBUG;TRACE
-C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\App.xaml
-2-887939226
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\App.xaml
+2-174792170
 1-1190459390
-13-380355097
-20667827305
-MainWindow.xaml;AddInspectorActivity.xaml;
+12-910481278
+20679632745
+Views\AddInspectorActivityDialog.xaml;Views\MainWindow.xaml;
 
 False
 

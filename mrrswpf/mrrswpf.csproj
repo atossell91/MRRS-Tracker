@@ -74,17 +74,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddInspectorActivity.xaml.cs">
-      <DependentUpon>AddInspectorActivity.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Commands\CmdOpenAddUserActivity.cs" />
     <Compile Include="Commands\CmdOpenDialog.cs" />
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\OpenAddInspectorActivityWindow.cs" />
     <Compile Include="configs.cs" />
     <Compile Include="Models\Configs.cs" />
     <Compile Include="ViewModels\InspectorActivityViewModel.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\AddInspectorActivityDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -92,14 +92,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\AddInspectorActivityDialog.xaml.cs">
+      <DependentUpon>AddInspectorActivityDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="AddInspectorActivity.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

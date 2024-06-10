@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,30 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace mrrswpf.ViewModels
+namespace mrrswpf
 {
     /// <summary>
-    /// Interaction logic for AddInspectorActivity.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class AddInspectorActivity : Window
+    public partial class MainWindow : Window
     {
-        public bool CanClose { get; set; } = false;
-        public AddInspectorActivity()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            base.OnClosing(e);
-
-            if (!CanClose)
-            {
-                e.Cancel = true;
-                this.Hide();
-            }
+            var win = new Views.AddInspectorActivityDialog();
+            win.Show();
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace mrrswpf
+namespace mrrspwf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,16 +23,6 @@ namespace mrrswpf
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

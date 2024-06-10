@@ -22,12 +22,9 @@ C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\mrrswpf.pdb
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\mrrslib.dll
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\System.Data.SQLite.dll
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\mrrslib.pdb
-C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\MainWindow.g.cs
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\App.g.cs
-C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf_MarkupCompile.cache
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf_MarkupCompile.lref
-C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\MainWindow.baml
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.g.resources
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.Properties.Resources.resources
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.csproj.GenerateResource.cache
@@ -42,8 +39,6 @@ C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\System.Data.SQLite.Lin
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\EntityFramework.xml
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\System.Data.SQLite.xml
-C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\AddInspectorActivity.g.cs
-C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\AddInspectorActivity.baml
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\Dapper.SqlBuilder.dll
 C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\Dapper.dll
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\bin\Debug\SQL\add-activity.sql
@@ -94,6 +89,13 @@ C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.csproj.CoreCompi
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.csproj.Up2Date
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.exe
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf.pdb
-C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\App.baml
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\bin\Debug\Resources\configs.txt
 C:\Users\Ant\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf_Content.g.cs
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\bin\Debug\Resources\configs.txt
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\mrrswpf_Content.g.cs
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\App.baml
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\Views\MainWindow.g.cs
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\Views\MainWindow.baml
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\Views\AddInspectorActivityDialog.g.cs
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\Views\AddInspectorActivityDialog.baml
+C:\Users\atoss\Programming\MRRS-Tracker\mrrswpf\obj\Debug\GeneratedInternalTypeHelper.g.cs

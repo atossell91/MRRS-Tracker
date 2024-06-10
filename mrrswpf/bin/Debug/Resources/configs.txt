@@ -1,1 +1,1 @@
-DatabasePath=C:\\Users\\Ant\\Programming\\MRRS-Tracker\\Database\\MRRS.db
+DatabasePath=C:\\Users\\atoss\\Documents\\MRRS.db
